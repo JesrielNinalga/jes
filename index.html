@@ -13,6 +13,8 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      position: relative;
+      overflow: hidden;
     }
     .letter {
       background: #fff;
@@ -24,13 +26,7 @@
       line-height: 1.8;
       color: #333;
       position: relative;
-    }
-    .letter::before {
-      content: "💌";
-      font-size: 40px;
-      position: absolute;
-      top: -20px;
-      left: 20px;
+      z-index: 1; /* keep letter above images/icons */
     }
     h1 {
       text-align: center;
@@ -46,15 +42,60 @@
       font-style: italic;
       color: #555;
     }
+
+    /* Base styles for images */
+    .side-img {
+      position: absolute;
+      width: 120px;
+      opacity: 0.9;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .img-left-top { left: 20px; top: 15%; }
+    .img-left-bottom { left: 20px; bottom: 15%; }
+    .img-right-top { right: 20px; top: 15%; }
+    .img-right-bottom { right: 20px; bottom: 15%; }
+
+    /* Sweet icons */
+    .icon {
+      position: absolute;
+      font-size: 40px;
+      opacity: 0.8;
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    .icon1 { top: 10%; left: 10%; }
+    .icon2 { bottom: 10%; right: 12%; animation-delay: 1s; }
+    .icon3 { top: 20%; right: 20%; animation-delay: 2s; }
+    .icon4 { bottom: 15%; left: 15%; animation-delay: 3s; }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
   </style>
 </head>
 <body>
+  <!-- Sweet Icons -->
+  <div class="icon icon1">💌</div>
+  <div class="icon icon2">❤️</div>
+  <div class="icon icon3">🌸</div>
+  <div class="icon icon4">💕</div>
+
+  <!-- Images -->
+  <img src="img1.jpg" alt="Left Top" class="side-img img-left-top">
+  <img src="img3.jpg" alt="Left Bottom" class="side-img img-left-bottom">
+  <img src="img2.jpg" alt="Right Top" class="side-img img-right-top">
+  <img src="img4.jpg" alt="Right Bottom" class="side-img img-right-bottom">
+
+  <!-- Letter -->
   <div class="letter">
     <h1>bebe cols</h1>
     <p>Sorry kung napaparamdam ko sayo na parang nagbago ako o nawawalan na yung effort ko para sayo, sorry rin kung minsan di ko na papakita sayo yung dating ako na sinusuyo ka, nag bibigay ng regalo at laging may effort para mapasaya ka. Hindi ko naman sinasadya na mawala yun.</p>
     <p>Alam kong may mga pagkukulang ako, pero hindi nagbago yung pagmamahal ko sayo. Ikaw pa rin naman yung gusto kong kasama at piliin araw araw. Susubukan kong maging mas open at mas consistent para hindi na tayo paulit-ulit sa mga away.</p>
     <p>Mahal kita, at ayokong mapagod ka. Ayusin natin to. Bibigyan kita ng reason para maramdaman mo ulit kung gaano kita kamahal. Pasensya na uli, di kita susukuan.</p>
-    <div class="signature">— Mahal mo 💕</div>
+    <div class="signature">— jes</div>
   </div>
 </body>
 </html>
